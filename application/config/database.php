@@ -37,7 +37,7 @@
 // The following values will probably need to be changed.
 $db['default']['username'] = "root";
 $db['default']['password'] = "root";
-$db['default']['database'] = "ekorevue";
+$db['default']['database'] = "eko_revue";
 
 // The following values can probably stay the same.
 $db['default']['hostname'] = "localhost";
