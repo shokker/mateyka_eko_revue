@@ -1,3 +1,4 @@
+
 <div class="panel panel-default"><!-- Post -->
     <?php if(!empty($post['featured_image'])):?>
     <div class="panel-img">
