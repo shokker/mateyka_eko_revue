@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Post extends CI_Model{
+class Magazines_model extends CI_Model{
 
-	var $table = 'posts';
+	var $table = 'magazines';
 
 
 	function find($limit = null, $offset = 0, $user_id = null, $q = null){
@@ -11,15 +11,15 @@ class Post extends CI_Model{
 // FROM post_tags AS pt
 // INNER JOIN tags AS t ON pt.tag_id = t.tag_id
 // GROUP BY `post_id`
-		$this->db->select('posts.*,users.username');
-        $this->db->join('users', 'users.id = posts.user_id');
+		$this->db->select('magazines.*,users.username');
+        $this->db->join('users', 'users.id = magazines.user_id');
         if ($q != null) {
             $this->db->like('title', $q);
         }
         if($user_id != null){
         	$this->db->where('user_id',$user_id);
         }
-        $this->db->where('type','post');
+        $this->db->where('type','magazine');
         $this->db->limit($limit, $offset);
         $this->db->order_by('published_at', 'desc');
         $query = $this->db->get($this->table);
@@ -28,13 +28,13 @@ class Post extends CI_Model{
 	}
 
 	function find_active($limit = null, $offset = 0, $q = null){
-		$this->db->select('posts.*,users.username');
-        $this->db->join('users', 'users.id = posts.user_id');
+		$this->db->select('magazines.*,users.username');
+        $this->db->join('users', 'users.id = magazines.user_id');
         if ($q != null) {
             $this->db->like('title', $q);
         }
         $this->db->where('status',1);
-        $this->db->where('type','post');
+        $this->db->where('type','magazine');
         $this->db->limit($limit, $offset);
         $this->db->order_by('published_at', 'desc');
         $query = $this->db->get($this->table);
@@ -42,36 +42,13 @@ class Post extends CI_Model{
         return $query->result_array();
 	}
 
-	function find_by_category($slug,$limit = null, $offset = 0){
-		$this->db->select('p.*,u.username');
-		$this->db->join('categories c','pc.category_id=c.id');
-		$this->db->join('posts p','pc.post_id=p.id');
-		$this->db->join('users u','p.user_id=u.id');
-		$this->db->where('p.status',1);
-		$this->db->where('c.slug',$slug);
-		$this->db->group_by('pc.post_id');
-		$this->db->order_by('p.published_at','desc');
-		$posts = $this->db->get('posts_categories pc',$limit,$offset)->result_array();
-		return $posts;
-	}
 
-	function find_by_tag($slug,$limit = null, $offset = 0){
-		$this->db->select('p.*,u.username');
-		$this->db->join('tags c','pc.tag_id=c.id');
-		$this->db->join('posts p','pc.post_id=p.id');
-		$this->db->join('users u','p.user_id=u.id');
-		$this->db->where('p.status',1);
-		$this->db->where('c.slug',$slug);
-		$this->db->group_by('pc.post_id');
-		$this->db->order_by('p.published_at','desc');
-		$posts = $this->db->get('posts_tags pc',$limit,$offset)->result_array();
-		return $posts;
-	}
 
-	function create($post){
-		$post['slug'] = url_title($post['title'],'-',true);
-		$post['body'] = trim(preg_replace('/\s\s+/', ' ',$post['body']));
-		$this->db->insert($this->table, $post);
+
+
+	function create($magazine){
+        $magazine['slug'] = url_title($magazine['title'],'-',true);
+		$this->db->insert($this->table, $magazine);
 	}
 
 	function update($post,$id){

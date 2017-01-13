@@ -55,6 +55,8 @@ class Posts extends MY_Controller {
         if ($this->form_validation->run() == TRUE) {
         	
             $data = $_POST;
+            $this->upload('gif|jpg|png','featured_image');
+            $data['featured_image'] = 'assets/uploads/'.$_FILES['featured_image']['name'];
             // print_data($data);exit;
             unset($data['category']);
             unset($data['tag']);
@@ -134,6 +136,9 @@ class Posts extends MY_Controller {
         if ($this->form_validation->run() == TRUE) {
          
             $data = $_POST;
+            $this->upload('gif|jpg|png','featured_image');
+            $data['featured_image'] = 'assets/uploads/'.$_FILES['featured_image']['name'];
+
             unset($data['category']);
             unset($data['tag']);
 
@@ -232,4 +237,21 @@ class Posts extends MY_Controller {
             redirect('admin/posts/index');
         }
 	}
+    public function upload($allowed_types,$name)
+    {
+        $config['upload_path']          = './assets/uploads/';
+        $config['allowed_types']        = $allowed_types;
+        $config['max_size']             = 100000;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload($name))
+        {
+
+            $error = array('error' => $this->upload->display_errors());
+            print_r($error);
+            die();
+        }
+    }
 }
+
