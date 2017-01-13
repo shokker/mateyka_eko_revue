@@ -35,19 +35,6 @@
                   </ul>
                 </div>
               </div>
-              <!-- <div class="widget">
-                <div class="widget-title">
-                  <h3>Archives</h3>
-                </div>
-                <div class="widget-content list-menus">
-                  <ul>
-                    <li><a href="#">March, 2015</a></li>
-                    <li><a href="#">April, 2015</a></li>
-                    <li><a href="#">May, 2015</a></li> 
-                    <li><a href="#">June, 2015</a></li>
-                  </ul>
-                </div>
-              </div> -->
               <div class="widget">
                 <div class="widget-title">
                   <h3>Tags</h3>

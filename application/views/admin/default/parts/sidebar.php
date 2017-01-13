@@ -68,6 +68,11 @@
                                     <i class="fa fa-gear"></i> <span>General Setting</span>
                                 </a>
                             </li>
+                            <li class="active">
+                                <a href="<?php echo site_url('admin/magazines')?>">
+                                    <i class="fa fa-book"></i> <span>Magazines</span>
+                                </a>
+                            </li>
                         <?php endif;?>
                     </ul>
                 </section>

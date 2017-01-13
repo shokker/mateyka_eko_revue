@@ -21,11 +21,13 @@ class Welcome extends MY_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Post');
+		$this->load->model('magazines_model');
 	}
 	public function index()
 	{
 		$this->data['home_page'] = 1;
 		$this->data['posts'] = $this->Post->find_active(3);
+		$this->data['magazines'] = $this->magazines_model->find_active(1);
 		$this->load_theme('welcome');
 	}
 }

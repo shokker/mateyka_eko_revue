@@ -6,7 +6,7 @@
                 <h3 class="box-title">Edit Post</h3>
             </div><!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="<?php echo site_url('admin/posts/edit')?>" method="post">
+            <form role="form" action="<?php echo site_url('admin/posts/edit')?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $post['id']?>">
                 <div class="box-body">
                     <?php echo message_box(validation_errors(),'danger'); ?>
@@ -27,7 +27,8 @@
                             <?php endif;?>
                         </div>
                         <div class="set_featured_image">
-                            <a type="button" style="cursor:pointer" class="btnShowAssets" data-toggle="modal" data-target="#assetsModal">Set Featured Image</a>
+                            <label for="post_status">Featured Image</label>
+                            <input type="file" name="featured_image" class="form-control" id="post_status"><?php echo set_value('featured_image');?>
                         </div>
                     </div>
                     <div class="form-group">

@@ -18,9 +18,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo $base_assets_url;?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Material Design for Bootstrap -->
-    <link href="<?php echo $base_assets_url;?>plugins/material-design/css/roboto.min.css" rel="stylesheet">
-    <link href="<?php echo $base_assets_url;?>plugins/material-design/css/material-fullpalette.min.css" rel="stylesheet">
-    <link href="<?php echo $base_assets_url;?>plugins/material-design/css/ripples.min.css" rel="stylesheet">
+<!--    <link href="--><?php //echo $base_assets_url;?><!--plugins/material-design/css/roboto.min.css" rel="stylesheet">-->
+<!--    <link href="--><?php //echo $base_assets_url;?><!--plugins/material-design/css/material-fullpalette.min.css" rel="stylesheet">-->
+<!--    <link href="--><?php //echo $base_assets_url;?><!--plugins/material-design/css/ripples.min.css" rel="stylesheet">-->
 
     <!-- Font awesome -->
     <link href="<?php echo $base_assets_url;?>plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -46,14 +46,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
           </div>
         </div>
+
+        <form action="post">
+          <input type="text" name="FirstName" value='Your Name' class="form-control">
+          <input type="text" name="email" value="Your Email" class="form-control"><br>
+          <textarea name="name" id="" cols="30" rows="10" class="form-control" > Your Message</textarea><br>
+          <button>SEND MESSAGE</button>
+        </form>
+
       </section>
-      <iframe style="width:698px;height:425px" src="http://online.anyflip.com/buwn/fyjs/"  seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" ></iframe>
       <?php echo $footer;?>
 
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<?php echo $base_assets_url;?>plugins/jquery/jquery.js"></script>
+    <script src="<?php echo $base_assets_url;?>main/js/my_js.js"></script>
+    <script src="<?php echo $base_assets_url;?>main/js/jssor.slider-22.0.15.mini.js" type="text/javascript" data-library="jssor.slider.mini" data-version="22.0.15"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo $base_assets_url;?>bootstrap/js/bootstrap.min.js"></script>
 

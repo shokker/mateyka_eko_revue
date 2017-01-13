@@ -6,7 +6,7 @@
                 <h3 class="box-title">New Post</h3>
             </div><!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="<?php echo site_url('admin/posts/add')?>" method="post">
+            <form role="form" action="<?php echo site_url('admin/posts/add')?>" method="post" enctype="multipart/form-data">
                 <div class="box-body">
                     <?php echo message_box(validation_errors(),'danger'); ?>
                     <div class="form-group">
@@ -19,11 +19,7 @@
                     </div>
                     <div class="form-group">
                         <label for="post_status">Featured Image</label>
-                        <input type="hidden" name="featured_image" value="<?php echo set_value('featured_image');?>" id="featured_image">
-                        <div class="preview_featured_image"></div>
-                        <div class="set_featured_image">
-                            <a type="button" style="cursor:pointer" class="btnShowAssets" data-toggle="modal" data-target="#assetsModal">Set Featured Image</a>
-                        </div>
+                        <input type="file" name="featured_image" class="form-control" id="post_status"><?php echo set_value('featured_image');?>
                     </div>
                     <div class="form-group">
                         <label for="post_name">Publish Date</label>
