@@ -1,6 +1,9 @@
 <?php if(!empty($posts)):?>
+    <div class="row">
   <?php foreach($posts as $post):?>
-  <div class="panel panel-default"><!-- Post -->
+
+        <div class="col-md-4 col-xs-4">
+  <div class="panel post panel-default"><!-- Post -->
       <?php if(!empty($post['featured_image'])):?>
       <div class="panel-img">
         <img src="<?php echo BASE_URI.$post['featured_image']?>" alt="<?php echo $post['title'];?>"/>
@@ -18,5 +21,7 @@
         </div>
       </div>
   </div><!-- End Post -->
+        </div> <!-- end col -->
   <?php endforeach;?>
+    </div> <!-- end row -->
 <?php endif;?>

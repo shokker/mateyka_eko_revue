@@ -41,15 +41,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <section class="main">
         <div class="container">
           <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
             <?php echo $content;?>
-            </div>
-            <div class="col-md-4">
-            <?php echo $right_sidebar;?>
             </div>
           </div>
         </div>
       </section>
+      <iframe style="width:698px;height:425px" src="http://online.anyflip.com/buwn/fyjs/"  seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" ></iframe>
       <?php echo $footer;?>
 
     </div>
